@@ -1,0 +1,19 @@
+{
+  "name": "2-20-rest-api-authentication",
+  "version": "1.0.0",
+  "description": "Assignment for Code Fellows JavaScript Development Accelerator: Build a REST API that uses authentication and HTTPS",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samhamm/2-20-rest-api-authentication.git"
+  },
+  "author": "Sam Hamm <samhamm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samhamm/2-20-rest-api-authentication/issues"
+  },
+  "homepage": "https://github.com/samhamm/2-20-rest-api-authentication"
+}
