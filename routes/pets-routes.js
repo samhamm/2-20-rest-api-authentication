@@ -6,7 +6,7 @@ var Pet = require('../models/Pet');
 // https://github.com/expressjs/body-parser
 var bodyParser = require('body-parser');
 
-// Definte the RESTful HTTP behaviors
+// Definte the RESTful HTTP behaviors for /pets
 module.exports = function(app) {
   app.use(bodyParser.json());
 
