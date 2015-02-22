@@ -44,4 +44,4 @@ userSchema.methods.generateToken = function(appSecret, callback) {
   eat.encode({id: this._id, timestamp: new Date()}, appSecret, callback);
 };
 
-module.exports = mongoose.model('User, userSchema');
+module.exports = mongoose.model('User', userSchema);
