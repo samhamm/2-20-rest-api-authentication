@@ -51,7 +51,7 @@ var petsRoutes = require('./routes/pets-routes');
 // ***7. Join your HTTP definitions and Express
 // HTTP(Express) with myRoutesModuleUsing(express.Router())
 // This one is for the database:
-petsRoutes(petsRouter);
+petsRoutes(petsRouter, app.get('appSecret'));
 // This one is for authentication:
 require('./routes/user-routes')(userRouter, passport, app.get('appSecret'));
 // Note: the preceding line is just an alternate way to do Step 5 for userRoutes.
