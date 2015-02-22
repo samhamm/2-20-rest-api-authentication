@@ -15,7 +15,7 @@ module.exports = function(app) {
     var newPet = new Pet(req.body);
     newPet.save(function(err, pet) {
       if (err) return res.status(500).send({'msg': 'error - could not save to pets'});
-      res.json(pet)
+      res.json(pet);
     });
   });
 
