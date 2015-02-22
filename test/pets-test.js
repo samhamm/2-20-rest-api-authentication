@@ -24,7 +24,7 @@ describe('pets api end points', function() {
         expect(err).to.eql(null);
         expect(res.body).to.have.property('_id');
         expect(res.body.name).to.eql('Buddy');
-        // expect(res.body.color).to.eql('orange and white');
+        expect(res.body.color).to.eql('orange and white');
         done();
       });
   });
