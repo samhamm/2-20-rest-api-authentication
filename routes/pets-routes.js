@@ -21,7 +21,6 @@ module.exports = function(app, appSecret) {
     });
   });
 
-  //GET
   app.get('/pets', eatAuth(appSecret), function(req, res) {
     Pet.find({user_id: req.user._id}, function(err, data){
       if (err) return res.status(500).send({'msg': 'error - could not retrieve pets'});

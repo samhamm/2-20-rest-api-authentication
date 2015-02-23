@@ -31,7 +31,7 @@ describe('pets api end points', function() {
 
   describe('already has data in database', function() {
     var id;
-    beforeEach(function(done) {
+    before(function(done) {
       chai.request('localhost:3000/api/v1')
         .post('/pets')
         .send({name: 'Alistair'})

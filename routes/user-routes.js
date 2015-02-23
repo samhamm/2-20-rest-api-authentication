@@ -13,15 +13,15 @@ module.exports = function(app, passport, appSecret) {
   //POST
   app.post('/create-user', function(req, res) {
     var newUser = new User();
-    newUser.basic.email = req.body.email;
-    newUser.basic.password = newUser.generateHash(req.body.password);
+    newUser.basic.email = req.body.basic.email;  // was req.body.email
+    newUser.basic.password = newUser.generateHash(req.body.basic.password); //changed 'basic'
 
     newUser.save( function(err, user){
 
-      if (err) return res.status(500).send ({msg: 'error: could not create user'});
+      if (err) return res.status(500).send ({msg: 'error: could not create user - 21'});
 
-      user.generateToken(appSecret, function(err, token) {
-        if (err) return res.status(500).send ({msg: 'error: could not generate token'});
+      User.generateToken(appSecret, function(err, token) {
+        if (err) return res.status(500).send ({msg: 'error: could not generate token - 24'});
 
         res.json({eat: token});
       }); // closes user.generateToken
@@ -32,7 +32,7 @@ module.exports = function(app, passport, appSecret) {
   app.get('/sign-in', passport.authenticate('basic', {session: false}), function(req, res) {
     req.user.generateToken(appSecret, function(err, token) {
 
-      if (err) return res.status(500).send ({msg: 'error: could not generate token'});
+      if (err) return res.status(500).send ({msg: 'error: could not generate token - 35'});
 
       res.json({eat: token});
     }); // closes req.user.generateToken
