@@ -12,7 +12,7 @@ var petSchema = new mongoose.Schema({
   age: Number,
   coloring: String,
   personality: String,
-  livesWithUs: Boolean
+  livesWithMe: Boolean
 });
 
 // http://mongoosejs.com/docs/models.html

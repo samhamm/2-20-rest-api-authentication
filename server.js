@@ -24,10 +24,15 @@ var passport = require('passport');
 
 // 3. Join together Express and Passport
 // app.set the (name, value) of the secret from Express to Passport:
-app.set('appSecret', process.env.SECRET || 'A-wop-bom-a-loo-mop-a-lomp-bom-bom!');
+app.set('appSecret', process.env.SECRET || 'dingdong');
 // Just as it looks, this initializes Passport:
 app.use(passport.initialize());
 
+// Morgan logs HTTP activity to the console.
+// Good for debugging.
+// Can be turned off by just commenting this out, natch.
+var morgan = require('morgan');
+app.use(morgan('dev'));
 
 // 4. Authentication:
 require('./lib/passport-strat')(passport);
@@ -52,11 +57,15 @@ var petsRoutes = require('./routes/pets-routes');
 // HTTP(Express) with myRoutesModuleUsing(express.Router())
 // This one is for the database:
 petsRoutes(petsRouter, app.get('appSecret'));
+
 // This one is for authentication:
-require('./routes/user-routes')(userRouter, passport, app.get('appSecret'));
+// require('./routes/user-routes')(userRouter, passport, app.get('appSecret'));
 // Note: the preceding line is just an alternate way to do Step 5 for userRoutes.
 // Tyler showed it to us just to expose us to it. (Or to fuck with us.)
-// We could have just used userRoutes(userRouter, passport...) in its place, after declaring var userRoutes the way petsRoutes was declared.
+// We could have just used...
+var userRoutes = require('./routes/user-routes');
+userRoutes(userRouter, passport, app.get('appSecret'));
+/// ...in its place, after declaring var userRoutes the way petsRoutes was declared.
 
 // *** 8. Configure URLs as desired
 // http://expressjs.com/api.html#router.use
