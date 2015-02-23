@@ -1,0 +1,9 @@
+SUPERAGENT COPYPASTA
+--------------------
+
+Current token:
+b+2wXQSKnXQZ4fo5HksTRB8pw9CZ8xehLjUUom6JmhBBssaofC751ubRjAYBhgPE7xO3wBQMj5H0O+s5xnm84LvtLQkoTdLA
+
+superagent localhost:3000/api/v1/create-user post '{"email": "fart@knocker.com", "password": "flatus"}'
+
+superagent localhost:3000/api/v1/sign-in -u fart@knocker.com:flatus
