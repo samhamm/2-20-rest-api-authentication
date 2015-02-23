@@ -6,21 +6,21 @@ var User = require('../models/User');
 // https://github.com/expressjs/body-parser
 var bodyParser = require('body-parser');
 
-// Definte the RESTful HTTP behaviors for /user
+// Define the RESTful HTTP behaviors for /user
 module.exports = function(app, passport, appSecret) {
   app.use(bodyParser.json());
 
   //POST
   app.post('/create-user', function(req, res) {
     var newUser = new User();
-    newUser.basic.email = req.body.basic.email;  // was req.body.email
-    newUser.basic.password = newUser.generateHash(req.body.basic.password); //changed 'basic'
+    newUser.basic.email = req.body.email;  // was req.body.email
+    newUser.basic.password = newUser.generateHash(req.body.password); //changed 'basic'
 
     newUser.save( function(err, user){
 
       if (err) return res.status(500).send ({msg: 'error: could not create user - 21'});
 
-      User.generateToken(appSecret, function(err, token) {
+      user.generateToken(appSecret, function(err, token) {
         if (err) return res.status(500).send ({msg: 'error: could not generate token - 24'});
 
         res.json({eat: token});
