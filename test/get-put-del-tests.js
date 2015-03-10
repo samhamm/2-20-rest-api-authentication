@@ -15,7 +15,7 @@ describe('already has data in database', function() {
         .get('/pets')
         .end(function(err, res) {
           expect(err).to.eql(null);
-          expect(Array.isArray(res.body)).to.be.true;
+          expect(Array.isArray(res.body)).to.be(true);
           expect(res.body[0]).to.have.property('name');
           done();
         });
@@ -41,3 +41,4 @@ describe('already has data in database', function() {
           done();
         });
     });
+});

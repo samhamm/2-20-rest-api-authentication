@@ -9,10 +9,6 @@ chai.use(chaihttp);
 
 var expect = chai.expect;
 
-require('end-point-tests.js');
+require('./end-point-tests.js');
 
-require('get-put-del-tests.js');
-
-
-  });
-});
+require('./get-put-del-tests.js');
